@@ -1,14 +1,14 @@
 #include "State.h"
-#include "Arduino.h"
+#include "Logger.h"
 
 State::~State(){}
 
 void State::onSwitchButtonPressed(){
-    Serial.println("Call from State: onSwitchButtonPressed");
+    logger::warning("Call from State: onSwitchButtonPressed");
 }
 void State::onTick(){
-    Serial.println("Call from State: onTick");
+    logger::error("Call from State: onTick");
 }
 void State::onTriggerButtonPressed(){
-    Serial.println("Call from State: onTriggerButtonPressed");
+    logger::debug("Call from State: onTriggerButtonPressed");
 }

@@ -1,6 +1,6 @@
 #include "StateIngame.h"
-#include "Arduino.h"
+#include "Logger.h"
 
 void StateIngame::onTriggerButtonPressed(){
-    Serial.println("Call from StateIngame: onSwitchButtonPressed");
+    logger::trace("Call from StateIngame: onSwitchButtonPressed");
 }
