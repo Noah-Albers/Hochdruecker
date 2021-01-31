@@ -8,7 +8,7 @@ void setup() {
   Serial.begin(115200);
 
   // Sets the log-level to log all
-  logger::setLogLevel(logger:ALL);
+  logger::setLogLevel(logger::ALL);
 
   State* s;
 
