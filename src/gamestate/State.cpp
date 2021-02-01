@@ -3,12 +3,8 @@
 
 State::~State(){}
 
-void State::onSwitchButtonPressed(){
-    logger::warning("Call from State: onSwitchButtonPressed");
-}
-void State::onTick(){
-    logger::error("Call from State: onTick");
-}
-void State::onTriggerButtonPressed(){
-    logger::debug("Call from State: onTriggerButtonPressed");
-}
+void State::onStateOpen(){}
+void State::onStateClose(){}
+void State::onSwitchButtonPressed(){}
+void State::onTick(){}
+void State::onTriggerButtonPressed(){}
