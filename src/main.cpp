@@ -22,6 +22,8 @@ void openGameState(State* state){
     delete currentState;
   }
 
+  logger::debug("Opening next state: "+state->getStateName());
+
   // Opens the new state
   currentState=state;
 }
@@ -37,7 +39,7 @@ void setup() {
   for(int i=0;i<AMOUNT_LEDS;i++)
     pinMode(LED_PINS[i],OUTPUT);
 
-  logger::trace(String(AMOUNT_LEDS)+" led's have been set to pinmode(Output).");
+  logger::debug(String(AMOUNT_LEDS)+" led's have been set to pinmode(Output).");
 
   // Opens the first state
   openGameState(new StateWaitForStart);

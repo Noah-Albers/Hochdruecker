@@ -15,10 +15,11 @@ class StateIngame : public State{
 
         // Returns the GPIO-Pin of the led that is currently high
         char getCurrentLedPin();
-        
+
         // Switches the led that is currently high 
         void switchLed();
     public:
+        StateIngame();
         void onTriggerButtonPressed();
         void onTick();
 };

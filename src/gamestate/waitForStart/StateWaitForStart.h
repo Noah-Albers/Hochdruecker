@@ -3,5 +3,6 @@
 
 class StateWaitForStart : public State{
     public:
+        StateWaitForStart();
         void onTriggerButtonPressed();
 };

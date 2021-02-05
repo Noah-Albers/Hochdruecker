@@ -3,6 +3,7 @@
 
 class StateLoss : public State{
     public:
+        StateLoss();
         void onTick();
         void onStateOpen();
 };

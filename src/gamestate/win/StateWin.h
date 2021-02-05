@@ -3,6 +3,7 @@
 
 class StateWin : public State{
     public:
+        StateWin();
         void onTick();
         void onStateOpen();
 };

@@ -1,7 +1,14 @@
 #pragma once
+#include <Arduino.h>
 
 class State{
+    private:
+        // Holds the name of the state
+        String statename;
+
     public:
+        State(String statename);
+
         virtual ~State();
 
         // Executes when the state gets closed
@@ -21,5 +28,6 @@ class State{
         // switching the difficulty gets pressed
         virtual void onSwitchButtonPressed();
 
-
+        // Returns the name of the state
+        String getStateName();
 };

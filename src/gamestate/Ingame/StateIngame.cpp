@@ -5,6 +5,8 @@
 #include "gamestate/win/StateWin.h"
 #include "gamestate/loss/StateLoss.h"
 
+StateIngame::StateIngame() : State("Ingame") {}
+
 char StateIngame::getCurrentLedPin(){
     return LED_PINS[this->winLedEnabled?this->currentStage:0];
 }
@@ -18,6 +20,8 @@ void StateIngame::switchLed(){
 
     // Enables the new led
     digitalWrite(this->getCurrentLedPin(),HIGH);
+
+    logger::trace("Led switched to "+String(this->winLedEnabled?"win":"loss"));
 }
 
 void StateIngame::onTick(){
@@ -41,6 +45,8 @@ void StateIngame::onTick(){
 
         // Switches the led
         this->switchLed();
+
+        logger::trace("Timer triggert");
     }
 }
 
@@ -61,6 +67,8 @@ void StateIngame::onTriggerButtonPressed(){
     }else
         // In/Decreases the stage depending if the player has won
         this->currentStage+=this->winLedEnabled?1:-1;
+
+    logger::debug("Clicked on "+String(this->winLedEnabled?"win":"loss")+"-state. New stage: "+String(this->currentStage));
 
     // Resets the timer
     this->blinkTimer.reset();
