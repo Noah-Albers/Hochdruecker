@@ -2,12 +2,15 @@
 #include "gamestate/State.h"
 
 // Holds the pins on which the leds are connected
-extern char PLAY_LEDS[5];
+extern char LED_PINS[5];
 // How many leds are connected
 extern int AMOUNT_LEDS;
 
 // Holds the currently opened state. Should only be modifed by @openGameState
 extern State* currentState;
+
+// If the difficulty is in easy mode
+extern bool diffcultyEasy;
 
 /**
  * Closes a previously opend state and opens the new state

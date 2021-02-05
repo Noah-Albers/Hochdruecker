@@ -10,6 +10,8 @@ int AMOUNT_LEDS = sizeof(LED_PINS)/sizeof(*LED_PINS);
 
 State* currentState;
 
+bool diffcultyEasy=true;
+
 void openGameState(State* state){
   // Checks if a previous state is still existing
   if(currentState!=NULL){
