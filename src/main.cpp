@@ -1,7 +1,7 @@
 #include "Main.h"
 #include <Arduino.h>
 #include "gamestate/State.h"
-#include "gamestate/Ingame/StateIngame.h"
+#include "gamestate/waitForStart/StateWaitForStart.h"
 #include "Logger.h"
 
 State* currentState;
@@ -28,7 +28,7 @@ void setup() {
   logger::setLogLevel(logger::ALL);
 
   // Opens the first state
-  openGameState(new StateIngame);
+  openGameState(new StateWaitForStart);
 }
 
 void loop() {
