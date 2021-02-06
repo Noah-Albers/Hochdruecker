@@ -1,15 +1,6 @@
 #pragma once
 #include "gamestate/State.h"
 
-// Holds the pins on which the leds are connected
-extern char LED_PINS[5];
-// How many leds are connected
-extern int AMOUNT_LEDS;
-
-// The pins for the buttons (switch and trigger)
-extern int BUTTON_PIN_SWITCH;
-extern int BUTTON_PIN_TRIGGER;
-
 // Holds the currently opened state. Should only be modifed by @openGameState
 extern State* currentState;
 

@@ -3,13 +3,7 @@
 #include "gamestate/State.h"
 #include "gamestate/waitForStart/StateWaitForStart.h"
 #include "Logger.h"
-
-char LED_PINS[] = {32,33,25,26,27}; // All GPIO-Pins from a heltec lora v2 that work with digitalWrite
-
-int BUTTON_PIN_SWITCH = 14;
-int BUTTON_PIN_TRIGGER = 12;
-
-int AMOUNT_LEDS = sizeof(LED_PINS)/sizeof(*LED_PINS);
+#include "CompileConfig.h"
 
 State* currentState;
 

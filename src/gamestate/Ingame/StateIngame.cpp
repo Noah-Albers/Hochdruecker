@@ -1,5 +1,6 @@
 #include "StateIngame.h"
 #include "Logger.h"
+#include "CompileConfig.h"
 #include "Main.h"
 #include <Arduino.h>
 #include "gamestate/win/StateWin.h"
