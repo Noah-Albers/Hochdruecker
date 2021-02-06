@@ -1,5 +1,11 @@
 #pragma once
 #include "gamestate/State.h"
+#include "util/Button.h"
+
+// The tigger button
+extern Button triggerButton;
+// The switch button
+extern Button switchButton;
 
 // Holds the currently opened state. Should only be modifed by @openGameState
 extern State* currentState;

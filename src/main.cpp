@@ -9,6 +9,13 @@ State* currentState;
 
 bool diffcultyEasy=true;
 
+Button triggerButton = Button(BUTTON_PIN_TRIGGER,[&]{
+  currentState->onTriggerButtonPressed();
+});
+Button switchButton = Button(BUTTON_PIN_SWITCH,[&]{
+  currentState->onSwitchButtonPressed();
+});
+
 void openGameState(State* state){
   // Checks if a previous state is still existing
   if(currentState!=NULL){
@@ -19,7 +26,7 @@ void openGameState(State* state){
     delete currentState;
   }
 
-  logger::debug("Opening next state: "+state->getStateName());
+  logger::debug("Opening state: "+state->getStateName());
 
   // Opens the new state
   currentState=state;
@@ -45,4 +52,8 @@ void setup() {
 void loop() {
   // Executes the tick event the open state
   currentState->onTick();
+
+  // Updates the buttons
+  triggerButton.onTick();
+  switchButton.onTick();
 }
