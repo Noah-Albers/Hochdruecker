@@ -22,7 +22,7 @@ void StateIngame::switchLed(){
     // Enables the new led
     digitalWrite(this->getCurrentLedPin(),HIGH);
 
-    logger::trace("Led switched to "+String(this->winLedEnabled?"win":"loss"));
+    logger::trace("Led switched to "+String(this->winLedEnabled==1?"win":"loss"));
 }
 
 void StateIngame::onTick(){
@@ -55,19 +55,22 @@ void StateIngame::onTriggerButtonPressed(){
     // Disables the current led
     digitalWrite(this->getCurrentLedPin(),LOW);
 
-    // Checks if the player has lost or won
-    if(this->currentStage == (this->winLedEnabled?AMOUNT_LEDS:1)){
-        // Checks which state should be opened next
-        if(this->winLedEnabled)
-            // Opens the win state
-            openGameState(new StateWin);
-        else
-            // Opens the loss state
-            openGameState(new StateLoss);
+    // Checks if the player pressed at the wrong led
+    if(!this->winLedEnabled){
+        // Opens the loss stage
+        openGameState(new StateLoss);
         return;
-    }else
-        // In/Decreases the stage depending if the player has won
-        this->currentStage+=this->winLedEnabled?1:-1;
+    }
+
+    // Checks if the player has won
+    if(this->currentStage == AMOUNT_LEDS-1){
+        // Opens the win stage
+        openGameState(new StateWin);
+        return;
+    }
+
+    // Increases the players stage
+    this->currentStage++;
 
     logger::debug("Clicked on "+String(this->winLedEnabled?"win":"loss")+"-state. New stage: "+String(this->currentStage));
 

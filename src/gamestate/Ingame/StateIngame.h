@@ -5,10 +5,10 @@
 class StateIngame : public State{
     private:
         // On which stage the player is on
-        int currentStage=0;
+        int currentStage=1;
 
         // If the correct led is blinking
-        bool winLedEnabled;
+        bool winLedEnabled=false;
 
         // The timer to measure the blink timing
         Timer blinkTimer;
