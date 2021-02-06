@@ -27,7 +27,7 @@ namespace logger{
             return;
 
         // Outputs the text with the prefix
-        Serial.println("["+prefix+" "+text);
+        Serial.println("["+prefix+"] "+text);
     }
 
     void setLogLevel(int level){
