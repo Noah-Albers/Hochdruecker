@@ -6,21 +6,25 @@
 #include "gamestate/win/StateWin.h"
 #include "gamestate/loss/StateLoss.h"
 
-StateIngame::StateIngame() : State("Ingame") {}
+StateIngame::StateIngame() : State("Ingame") {
+    // Disables all leds
+    for(int i=0;i<AMOUNT_LEDS;i++)
+        ledcWrite(i,0);
+}
 
-char StateIngame::getCurrentLedPin(){
-    return LED_PINS[this->winLedEnabled?this->currentStage:0];
+char StateIngame::getCurrentLedChannel(){
+    return this->winLedEnabled?this->currentStage:0;
 }
 
 void StateIngame::switchLed(){
     // Disables the current led
-    digitalWrite(this->getCurrentLedPin(),LOW);
+    ledcWrite(this->getCurrentLedChannel(),0);
 
     // Updates the led enable
     this->winLedEnabled=!this->winLedEnabled;
 
     // Enables the new led
-    digitalWrite(this->getCurrentLedPin(),HIGH);
+    ledcWrite(this->getCurrentLedChannel(),255);
 
     logger::trace("Led switched to "+String(this->winLedEnabled==1?"win":"loss"));
 }
@@ -53,7 +57,7 @@ void StateIngame::onTick(){
 
 void StateIngame::onTriggerButtonPressed(){
     // Disables the current led
-    digitalWrite(this->getCurrentLedPin(),LOW);
+    ledcWrite(this->getCurrentLedChannel(),0);
 
     // Checks if the player pressed at the wrong led
     if(!this->winLedEnabled){
@@ -77,9 +81,9 @@ void StateIngame::onTriggerButtonPressed(){
     // Resets the timer
     this->blinkTimer.reset();
 
-    // Resets the win led
-    this->winLedEnabled=false;
+    // Shows the next led
+    this->winLedEnabled=true;
 
     // Enables the current led
-    digitalWrite(this->getCurrentLedPin(),HIGH);
+    ledcWrite(this->getCurrentLedChannel(),255);
 }

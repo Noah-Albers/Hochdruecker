@@ -40,8 +40,12 @@ void setup() {
   logger::setLogLevel(logger::ALL);
   
   // Sets all leds to outout
-  for(int i=0;i<AMOUNT_LEDS;i++)
-    pinMode(LED_PINS[i],OUTPUT);
+  for(int i=0;i<AMOUNT_LEDS;i++){
+    // Setups the channel at i
+    ledcSetup(i,PWM_FREQ,PWM_RESOLUTION);
+    // Bind the pin to that channel
+    ledcAttachPin(LED_PINS[i],i);
+  }
 
   logger::debug(String(AMOUNT_LEDS)+" led's have been set to pinmode(Output).");
 

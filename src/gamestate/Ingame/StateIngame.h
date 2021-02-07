@@ -13,8 +13,8 @@ class StateIngame : public State{
         // The timer to measure the blink timing
         Timer blinkTimer;
 
-        // Returns the GPIO-Pin of the led that is currently high
-        char getCurrentLedPin();
+        // Returns the ledc-Channel of the led that is currently high
+        char getCurrentLedChannel();
 
         // Switches the led that is currently high 
         void switchLed();
