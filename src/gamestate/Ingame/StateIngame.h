@@ -20,6 +20,7 @@ class StateIngame : public State{
         void switchLed();
     public:
         StateIngame();
+        void onStateOpen();
         void onTriggerButtonPressed();
         void onTick();
 };

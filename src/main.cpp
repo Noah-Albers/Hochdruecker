@@ -26,6 +26,9 @@ void openGameState(State* state){
     delete currentState;
   }
 
+  // Fires the state open event
+  state->onStateOpen();
+
   logger::debug("Opening state: "+state->getStateName());
 
   // Opens the new state

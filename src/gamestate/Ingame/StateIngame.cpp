@@ -6,10 +6,10 @@
 #include "gamestate/win/StateWin.h"
 #include "gamestate/loss/StateLoss.h"
 
-StateIngame::StateIngame() : State("Ingame") {
-    // Disables all leds
-    for(int i=0;i<AMOUNT_LEDS;i++)
-        ledcWrite(i,0);
+StateIngame::StateIngame() : State("Ingame") {}
+
+void StateIngame::onStateOpen(){
+    clearLeds();
 }
 
 char StateIngame::getCurrentLedChannel(){
