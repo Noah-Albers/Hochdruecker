@@ -9,7 +9,6 @@ State::~State(){}
 
 void State::onStateOpen(){}
 void State::onStateClose(){}
-void State::onSwitchButtonPressed(){}
 void State::onTick(){}
 void State::onTriggerButtonPressed(){}
 

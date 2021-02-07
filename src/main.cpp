@@ -13,7 +13,7 @@ Button triggerButton = Button(BUTTON_PIN_TRIGGER,[&]{
   currentState->onTriggerButtonPressed();
 });
 Button switchButton = Button(BUTTON_PIN_SWITCH,[&]{
-  currentState->onSwitchButtonPressed();
+  diffcultyEasy=!diffcultyEasy;
 });
 
 void openGameState(State* state){
