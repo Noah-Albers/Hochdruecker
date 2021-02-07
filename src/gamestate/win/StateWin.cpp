@@ -7,13 +7,7 @@
 StateWin::StateWin() : State("Win"){}
 
 void StateWin::onStateOpen(){
-    this->clearLeds();
-}
-
-void StateWin::clearLeds(){
-    // Disables all leds
-    for(int i=0;i<AMOUNT_LEDS;i++)
-        ledcWrite(i,0);
+    clearLeds();
 }
 
 long StateWin::getPlayTime(){
@@ -32,7 +26,7 @@ void StateWin::onTick(){
         this->t2.reset();
         this->i2=0;
         // Clears all leds
-        this->clearLeds();
+        clearLeds();
 
         logger::debug("(Win) Opening next animationstate: "+String(this->animationStage));
     }

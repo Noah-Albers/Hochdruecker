@@ -32,6 +32,12 @@ void openGameState(State* state){
   currentState=state;
 }
 
+void clearLeds(){
+  // Disables all leds
+  for(int i=0;i<AMOUNT_LEDS;i++)
+      ledcWrite(i,0);
+}
+
 void setup() {
   // Starts the serial output
   Serial.begin(115200);

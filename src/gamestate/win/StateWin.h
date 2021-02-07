@@ -23,8 +23,6 @@ class StateWin : public State{
         void onTick();
         void onStateOpen();
 
-        // Clears all leds
-        void clearLeds();
         // Calculates the play-time of the current stage
         long getPlayTime();
 

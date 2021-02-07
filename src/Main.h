@@ -19,3 +19,9 @@ extern bool diffcultyEasy;
  *              As the pointer could be deleted anytime (Mainly by the state itself), it sould not be depended up on or stored at other locations.
  */
 void openGameState(State* state);
+
+
+/**
+ * Clears all leds that are connected an disables them
+ */
+void clearLeds();
